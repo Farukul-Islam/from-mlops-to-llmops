@@ -24,6 +24,13 @@ The emergence of Large Language Models has fundamentally changed how organizatio
 
 This document walks through each component of a production LLMOps system, explaining how it differs from traditional MLOps, what new artifacts and pipelines it introduces, and how all the pieces connect. By the end, you will understand not just *what* LLMOps adds, but *why* these additions are necessary and how they form a coherent, production-ready architecture.
 
+**Related materials in this repository:**
+
+- [Case Study: MLOps vs LLMOps](./case-study-mlops-llmops.md) — A hands-on comparative study for students
+- [Case Study: Expanded Sections](./case-study-expanded-sections.md) — Instructor guide with detailed answers
+- [Research Paper Outline](./research-paper-mlops-to-llmops.md) — Academic paper structure for publication
+- [Architecture Diagrams](./diagrams/) — Visual representations of MLOps and LLMOps architectures
+
 ## 1. High-Level Definition
 
 LLMOps (Large Language Model Operations) is the discipline that extends MLOps to address the unique requirements of deploying and operating Large Language Models in production.
@@ -50,9 +57,17 @@ Unlike traditional MLOps, where the primary artifact is a trained model, LLMOps 
 
 This architecture is not just a pipeline—it is a **closed-loop system** where monitoring informs prompt refinement, retrieval tuning, and guardrail adjustment.
 
+![LLMOps Reference Architecture](./diagrams/llmops-reference-architecture.png)
+
+*Figure 1: Six-layer LLMOps reference architecture showing component organization*
+
 ## 2. How LLMOps Differs from MLOps
 
 Before examining individual components, it is essential to understand the fundamental differences between traditional MLOps and LLMOps.
+
+![MLOps vs LLMOps Comparison](./diagrams/mlops-vs-llmops-comparison.png)
+
+*Figure 2: Side-by-side comparison of MLOps and LLMOps architectures*
 
 ### 2.1 Artifact Types
 
@@ -249,6 +264,10 @@ It answers:
 ### 3.7 RAG Pipeline
 
 **Purpose:** Orchestrate the retrieval and generation process.
+
+![LLMOps Architecture](./diagrams/llmops-architecture.png)
+
+*Figure 3: LLMOps pipeline showing the flow from documents through RAG to response*
 
 The RAG (Retrieval-Augmented Generation) pipeline connects the Vector Store, Prompt Registry, and LLM into a coherent system. It:
 
@@ -559,3 +578,36 @@ However, tools alone do not create a successful LLMOps practice. The architectur
 The ultimate goal is a system where deploying a new prompt is routine, not risky—where hallucinations are detected and prevented automatically, where costs are visible and controlled, and where the entire team can focus on improving user experience rather than fighting production fires.
 
 This is what production LLM deployment looks like. This is LLMOps.
+
+---
+
+## Further Resources
+
+This repository contains additional materials for learning and teaching LLMOps:
+
+### For Students
+
+- **[Case Study: MLOps vs LLMOps](./case-study-mlops-llmops.md)** — A hands-on comparative analysis assignment where you analyze a company migrating from traditional ML to LLM-based document intelligence. Includes architecture comparison, cost analysis, governance assessment, and migration planning.
+
+### For Instructors
+
+- **[Case Study: Expanded Sections](./case-study-expanded-sections.md)** — Complete answer key and detailed explanations for all case study sections. Includes sample answers, grading guidance, and discussion points.
+
+### For Researchers
+
+- **[Research Paper Outline](./research-paper-mlops-to-llmops.md)** — Full academic paper structure following Design Science Research methodology. Ready for development into a publication for venues like IEEE Software, ICSE SEIP, or MLSys.
+
+### Architecture Diagrams
+
+All diagrams are available in both PNG and SVG formats in the [diagrams/](./diagrams/) directory:
+
+| Diagram | Description |
+|---------|-------------|
+| [mlops-architecture.png](./diagrams/mlops-architecture.png) | Traditional MLOps pipeline |
+| [llmops-architecture.png](./diagrams/llmops-architecture.png) | LLMOps pipeline with RAG |
+| [mlops-vs-llmops-comparison.png](./diagrams/mlops-vs-llmops-comparison.png) | Side-by-side comparison |
+| [llmops-reference-architecture.png](./diagrams/llmops-reference-architecture.png) | Six-layer reference architecture |
+
+### External References
+
+- [MLOps Lifecycle](https://github.com/oriolrius/data-platform-ops/blob/main/mlops-lifecycle.md) — The companion document explaining traditional MLOps architecture in the same style as this document.
